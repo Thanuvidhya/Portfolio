@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/portfolios.css' %}"> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="#">Portfo<span>lio</span></a></div>
+        <ul class="menu">
+            <li><a href="#HOME">Home</a></li>
+            <li><a href="#ABOUT">About</a></li>
+            <li><a href="#SKILLS">Skills</a></li>
+            <li><a href="#PROJECT">Project</a></li>
+        </ul>
+    </nav>
+    <!-- home sections -->
+    <div class="container"><a name="HOME"></a>
+        <div class="text"> 
+            <div class="text1">Hi,</div>
+            <div class="text2">I am Thanuvidhya</div>
+            <div class="text3">Python fullStack Developer !</div>
+            <!-- social media icon section -->
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/prasanth-m457/"><i class="fa-brands fa-linkedin" ></i></a>
+                <a href="" class="icons"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100057325741401" class="icons"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/prasanth___vptp/" class="icons"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/veraaprasa-com/Prasanth-" class="icons"><i class="fa-brands fa-github"></i></a>
+                <a href="/static/img/Prasanth CV.pdf" id="cv">Download CV</a>
+            </div>
+        </div>
+        <div class="my-image">
+            <img src="/static/img/logo4.jpeg" alt="my photo">
+        </div>
+    </div>
+   <!------------------------------------------------------------------------------------------------------------------------->
+    <!-- about section -->
+     <div class="about-section">
+        <div class="heading"><a name="ABOUT"><h2>About Me</h2></a></div>
+            <div class="about">
+                <div class="left">
+                    <img src="/static/img/logo3.jpeg" alt="">
+                </div>
+                <div class="right">
+                    <h2>I'am Prasanth | FullStack Developer</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum laborum reiciendis, ratione corporis laboriosam incidunt inventore facilis numquam cumque dignissimos! Perferendis, impedit. Blanditiis fugit, impedit ipsum labore itaque sequi corrupti natus harum voluptatum fugiat a. Odit ex quasi molestias atque cumque dolore ullam perspiciatis? Id neque mollitia iste dicta praesentium veritatis, voluptate in. Adipisci tenetur quas sint rerum mollitia qui possimus. Illum corporis dolores consectetur exercitationem autem velit optio ipsam aliquam laborum iure, inventore dicta voluptas non eum porro repudiandae tempore. Dicta eaque ullam ratione, non ipsum, eum qui sapiente recusandae consequuntur voluptatem harum veniam placeat laborum fugit deleniti tempore.</p>
+                    <div class="more"><a href="">Learn More</a></div>
+                </div>
+            </div>
+    </div>
+    <!-- ------------------------project section ----------------------------------------------------------->
+    <div class="project-info">
+        <div class="title"><h2><a name="PROJECT">Projects</a></h2></div>
+            <div class="project">
+                <div class="project1">
+                    <fieldset>
+                        <legend>VIRTUAL PAINTER</legend>
+                            <img src="/static/img/virtual_paint.avif" alt="">
+                                <h4>ADVANCE VIRTUAL PAINTER USING AI AND OPENCV</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quod, esse quo ratione ex voluptatem corrupti dolor aliquam eligendi cumque vel consequatur atque consequuntur incidunt, voluptatum pariatur? Consequatur aliquid fugit, necessitatibus dolorem numquam voluptatem laudantium earum amet sapiente voluptatum dolores suscipit vero aperiam exercitationem hic adipisci modi inventore! Sapiente, alias.</p>
+                                <div class="demo">
+                                <div class="get-code"><a href="">Live Demo</a></div>
+                                <div class="get-code"><a href="https://github.com/veraaprasa-com/Prasanth-/tree/main/Advance%20Virtual%20painter%20using%20AI%20and%20Opencv">Github Code</a></div>
+                                </div>
+                    </fieldset>
+                </div>
+                <div class="project2 extra">
+                    <fieldset>
+                        <legend>STOCK FORCASTING </legend>
+                            <img src="/static/img/dashboard.jpg" alt="">
+                                <h4>STOCK VISUALIZATION FORCASTING DASHBOARD USING DASH</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa quod, esse quo ratione ex voluptatem corrupti dolor aliquam eligendi cumque vel consequatur atque consequuntur incidunt, voluptatum pariatur? Consequatur aliquid fugit, necessitatibus dolorem numquam voluptatem laudantium earum amet sapiente voluptatum dolores suscipit vero aperiam exercitationem hic adipisci modi inventore! Sapiente, alias.</p>
+                                <div class="demo">
+                                <div class="get-code"><a href="">Live Demo</a></div>
+                                <div class="get-code"><a href="https://github.com/veraaprasa-com/Prasanth-">Github Code</a></div>
+                                </div>
+                    </fieldset>
+                </div>
+            </div>
+    </div>
+    <!---------------------------------------- skills section--------------------------------------------------- -->
+    <div class="skill-container">
+        <div class="title-2"><h2><a name="SKILLS">Skills</a></h2></div>
+        <div class="skills">
+            <div class="inner-width">
+                <div class="highlit"><h2>Backend</h2></div>
+                <div class="skill">
+                    <div class="box box1"><img src="/static/img/python.png" alt="" height="30px"></div>
+                    <div class="box box2"><img src="/static/img/letter-c.png" alt="" height="30px"></div>
+                    <div class="box box3"><img src="/static/img/c-.png" alt=""height="30px"></div>
+                    <div class="box box4">Python</div>
+                    <div class="box box5">C</div>
+                    <div class="box box6">C++</div>
+                </div>
+            </div>
+            <div class="inner-width">
+                <div class="highlit"><h2>Frontend</h2></div>
+                <div class="skill">
+                    <div class="box box1"><img src="/static/img/html.png" alt="" height="30px"></div>
+                    <div class="box box2"><img src="/static/img/css-3.png" alt="" height="30px"></div>
+                    <div class="box box3"><img src="/static/img/js.png" alt="" height="30px"></div>
+                    <div class="box box4">HTML</div>
+                    <div class="box box5">CSS</div>
+                    <div class="box box6">JavaScript</div>
+                </div>
+            </div>
+            <div class="inner-width">
+                <div class="highlit"><h2>others</h2></div>
+                <div class="skill">
+                    <div class="box box1"><img src="/static/img/sql.png" alt=""height="30px"></div>
+                    <div class="box box2"><img src="/static/img/django.png" alt="" height="30px"></div>
+                    <div class="box box3"><img src="/static/img/github.png" alt="" height="30px"></div>
+                    <div class="box box4">SQL</div>
+                    <div class="box box5">Django</div>
+                    <div class="box box6">Github</div>
+                </div>
+            </div> 
+            
+        </div>
+    </div>->
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- <script src="{% static 'js/bootstrap.bundle.js' %}"></script> -
+</body>
+`
+</html>

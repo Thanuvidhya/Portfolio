@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanuvidhya C - AI/ML Engineer Portfolio</title>
+    <meta name="description" content="Thanuvidhya C - AI/ML Engineer, Data Science Enthusiast. Building Intelligent Systems with AI & Data-Driven Solutions">
+    <meta name="keywords" content="AI, ML, Data Science, Full Stack Developer, Portfolio, Thanuvidhya">
+    <meta name="author" content="Thanuvidhya C">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Thanuvidhya C - Data Scientist Portfolio">
+    <meta property="og:description" content="Building Intelligent Systems with AI & Data-Driven Solutions">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <style>
+        .timeline-item { opacity: 1 !important; transform: translateY(0) !important; }
+        .skill-progress { width: var(--progress, 0%) !important; }
+        .skill-progress[data-progress="90"] { --progress: 90%; }
+        .skill-progress[data-progress="85"] { --progress: 85%; }
+        .skill-progress[data-progress="80"] { --progress: 80%; }
+        .skill-progress[data-progress="75"] { --progress: 75%; }
+        .skill-progress[data-progress="70"] { --progress: 70%; }
+        .skill-progress[data-progress="65"] { --progress: 65%; }
+        .skill-percentage { color: #ffffff !important; font-weight: 600 !important; }
+        
+        /* Particles for all sections except hero */
+        .about .particles, .skills .particles, .projects .particles, 
+        .internships .particles, .certifications .particles, 
+        .languages .particles, .contact .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .about .container, .skills .container, .projects .container,
+        .internships .container, .certifications .container,
+        .languages .container, .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            from {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Internships Grid Layout */
+        .internships-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 20px 0;
+        }
+        
+        .internship-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .internship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .internship-date {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .internship-card h3 {
+            color: var(--text-primary);
+            font-size: 18px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        
+        .internship-card h4 {
+            color: var(--accent-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .internship-card p {
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        /* About Section Hover Effects */
+        .about-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            border-color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            transition: left 0.6s ease;
+            opacity: 0.3;
+        }
+        
+        .about-card:hover::before {
+            left: 100%;
+        }
+        
+        .about-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-details {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-item {
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        
+        .detail-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .detail-item i {
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .detail-item:hover i {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+        
+        /* Projects Theme Colors */
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .project-title {
+            color: var(--text-primary) !important;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .project-subtitle {
+            color: var(--accent-color) !important;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .project-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-tech {
+            margin-bottom: auto;
+        }
+        
+        .project-links {
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .tech-tag {
+            background: var(--primary-color);
+            color: white !important;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            display: inline-block;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-link {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.3s ease;
+            padding: 8px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            display: inline-block;
+            background: transparent;
+        }
+        
+        .project-link:hover {
+            color: var(--accent-color) !important;
+            border-color: var(--accent-color);
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Hero Particles */
+        .hero .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: particleMove 15s infinite linear;
+        }
+        
+        .particle.type1 { background: linear-gradient(45deg, var(--primary-color), var(--accent-color)); }
+        .particle.type2 { background: var(--primary-color); }
+        .particle.type3 { background: var(--accent-color); }
+        .particle.type4 { background: rgba(255, 255, 255, 0.6); }
+        
+        @keyframes particleMove {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--end-x), var(--end-y));
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">Loading Portfolio...</div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">TC</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#internships" class="nav-link">Internships</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="particles" id="particles"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-name">
+                        <span class="name-first">Thanuvidhya C</span>
+                        <span class="name-last"></span>
+                    </h1>
+                    <div class="hero-title">
+                        <span class="static-text">I'm a </span>
+                        <span class="dynamic-text" id="typing-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-tagline">
+                        Building Intelligent Systems with AI & Data-Driven Solutions
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-briefcase"></i>
+                            View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Contact Me
+                        </a>
+                        <a href="#" class="btn btn-outline" id="download-resume">
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="profile-thumb.jpg" alt="Thanuvidhya C">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Thanuvidhya C</h3>
+                            <p>Data Scientist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="particles" id="about-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-text">
+                        <p>
+                       I am Thanuvidhya C, a dedicated Computer Science student and aspiring AI/ML Engineer with a strong interest in Artificial Intelligence, Data Science, and secure application development. I enjoy working with Python, machine learning
+                        and data-driven solutions to solve real-world problems and I continuously strive to improve my technical skills and grow as an innovative technology professional.I aim to contribute to forward-thinking organizations where I can apply my AI expertise, grow as a technology professional, and build intelligent systems that improve lives.
+        
+                        </p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h4>Education</h4>
+                                    <p>BE Computer Science (2022-2026)</p>
+                                    <p>Adhiyamaan College of Engineering</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>thanuvidhyac@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="particles" id="skills-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-content">
+                <div class="skills-grid">
+                    <div class="skill-item" data-skill="Python">
+                        <div class="skill-header">
+                            <i class="fab fa-python skill-icon"></i>
+                            <h3>Python</h3>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90">
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="AI/ML">
+                        <div class="skill-header">
+                            <i class="fas fa-brain skill-icon"></i>
+                            <h3>AI / ML</h3>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85">
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="Data Science">
+                        <div class="skill-header">
+                            <i class="fas fa-chart-line skill-icon"></i>
+                            <h3>Data Science</h3>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="80">
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="MySQL">
+                        <div class="skill-header">
+                            <i class="fas fa-database skill-icon"></i>
+                            <h3>MySQL</h3>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75">
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="Power BI">
+                        <div class="skill-header">
+                            <i class="fas fa-chart-pie skill-icon"></i>
+                            <h3>Power BI</h3>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70">
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item" data-skill="PHP">
+                        <div class="skill-header">
+                            <i class="fab fa-php skill-icon"></i>
+                            <h3>PHP</h3>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="65">
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="particles" id="projects-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-content">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">RAG-BOT</h3>
+                        <h4 class="project-subtitle">Retrieval-Augmented Generation</h4>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">ML</span>
+                            <span class="tech-tag">AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Thanuvidhya" class="project-link" target="blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">SQL Injection Detection Tool</h3>
+                        <h4 class="project-subtitle">Cybersecurity / Web Security</h4>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Thanuvidhya" class="project-link" target="blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Ethical Fake Information Rewriter</h3>
+                        <h4 class="project-subtitle">AI / NLP / Content Moderation</h4>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Thanuvidhya" class="project-link" target="blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Multimodal Mental Health Detection</h3>
+                        <h4 class="project-subtitle">Healthcare AI / Emotion Recognition</h4>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Audio</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Thanuvidhya" class="project-link" target="blank">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+    <section id="internships" class="internships">
+        <div class="particles" id="internships-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Internship</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="internships-grid">
+                <div class="internship-card">
+                    <div class="internship-date">2026</div>
+                    <h3>Data Science with Python</h3>
+                    <h4>Peps Tech</h4>
+                    <p>Advanced data analysis, machine learning implementation and predictive modeling using Python for real-world business solutions.</p>
+                </div>
+                <div class="internship-card">
+                    <div class="internship-date">2025</div>
+                    <h3>Data Science with Python</h3>
+                    <h4>iGeeks Technology</h4>
+                    <p>Working as Data Science professional, applying machine learning algorithms, statistical analysis, and predictive models.</p>
+                </div>
+                <div class="internship-card">
+                    <div class="internship-date">2024</div>
+                    <h3>Data Analyst</h3>
+                    <h4>Pantech Solutions</h4>
+                    <p>Worked on data processing, analysis, and creating insightful reports for business decisions.</p>
+                </div>
+                <div class="internship-card">
+                    <div class="internship-date">2023</div>
+                    <h3>Python Bootcamp</h3>
+                    <h4>Pantech Solutions</h4>
+                    <p>Worked on Python programming concepts such as data types, loops, functions, object-oriented programming and libraries for data analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="particles" id="certifications-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Fundamentals of Generative AI</h3>
+                    <p>Microsoft</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Cloud Computing and DevOps</h3>
+                    <p>Excelr</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Full Stack Development</h3>
+                    <p>Infosys Springboard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages" class="languages">
+        <div class="particles" id="languages-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Languages</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="languages-content">
+                <div class="language-item">
+                    <div class="language-info">
+                        <h3>English</h3>
+                        <div class="language-level">
+                            <div class="level-bar">
+                                <div class="level-progress" data-level="90"></div>
+                            </div>
+                            <span>Fluent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <div class="language-info">
+                        <h3>Tamil</h3>
+                        <div class="language-level">
+                            <div class="level-bar">
+                                <div class="level-progress" data-level="100"></div>
+                            </div>
+                            <span>Native</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="particles" id="contact-particles"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Let's Connect</h3>
+                        <p>I'm always interested in hearing about new opportunities and exciting projects.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:thanuvidhyac@gmail.com">thanuvidhyac@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+917695891799">+91 7695891799</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="https://linkedin.com/in/thanuvidhya-c-a9442b259/" target="_blank">LinkedIn Profile</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/Thanuvidhya" target="_blank">GitHub Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Thanuvidhya C. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/thanuvidhya-c-a9442b259/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Thanuvidhya" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:thanuvidhyac@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button id="back-to-top" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.min.js"></script>
+    <script>
+        // Particle system with collision detection
+        class ParticleSystem {
+            constructor(container, particleCount = 30) {
+                this.container = container;
+                this.particles = [];
+                this.particleCount = particleCount;
+                this.init();
+            }
+            
+            init() {
+                for (let i = 0; i < this.particleCount; i++) {
+                    this.createParticle(i);
+                }
+                this.animate();
+            }
+            
+            createParticle(index) {
+                const particle = document.createElement('div');
+                const typeClass = `type${(index % 4) + 1}`;
+                particle.className = `particle ${typeClass}`;
+                
+                // Random starting position
+                const startX = Math.random() * 100;
+                const startY = Math.random() * 100;
+                
+                // Random ending position
+                const endX = (Math.random() - 0.5) * 200; // -100 to +100
+                const endY = (Math.random() - 0.5) * 200; // -100 to +100
+                
+                particle.style.left = startX + '%';
+                particle.style.top = startY + '%';
+                particle.style.setProperty('--end-x', endX + 'px');
+                particle.style.setProperty('--end-y', endY + 'px');
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                
+                this.container.appendChild(particle);
+                this.particles.push(particle);
+            }
+            
+            animate() {
+                // Collision detection and boundary checking
+                setInterval(() => {
+                    this.particles.forEach((particle, i) => {
+                        const rect = particle.getBoundingClientRect();
+                        const centerX = rect.left + rect.width / 2;
+                        const centerY = rect.top + rect.height / 2;
+                        
+                        // Check boundaries and reverse if needed
+                        if (centerX < 0 || centerX > window.innerWidth) {
+                            particle.style.animationDirection = 'reverse';
+                        }
+                        if (centerY < 0 || centerY > window.innerHeight) {
+                            particle.style.animationDirection = 'reverse';
+                        }
+                        
+                        // Simple collision with other particles
+                        for (let j = i + 1; j < this.particles.length; j++) {
+                            const otherRect = this.particles[j].getBoundingClientRect();
+                            const otherCenterX = otherRect.left + otherRect.width / 2;
+                            const otherCenterY = otherRect.top + otherRect.height / 2;
+                            
+                            const distance = Math.sqrt(
+                                Math.pow(centerX - otherCenterX, 2) + 
+                                Math.pow(centerY - otherCenterY, 2)
+                            );
+                            
+                            if (distance < 20) { // Collision detected
+                                // Bounce effect
+                                particle.style.transform = `translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px)`;
+                            }
+                        }
+                    });
+                }, 100);
+            }
+        }
+        
+        // Create particles for hero section
+        function createHeroParticles() {
+            const heroParticles = document.getElementById('particles');
+            if (heroParticles) {
+                new ParticleSystem(heroParticles, 30);
+            }
+        }
+        
+        // Create particles for all sections except hero
+        function createSectionParticles() {
+            const particleContainers = [
+                'about-particles', 'skills-particles', 'projects-particles',
+                'internships-particles', 'certifications-particles', 
+                'languages-particles', 'contact-particles'
+            ];
+            
+            particleContainers.forEach(containerId => {
+                const container = document.getElementById(containerId);
+                if (container) {
+                    for (let i = 0; i < 15; i++) {
+                        const particle = document.createElement('div');
+                        particle.className = 'particle';
+                        particle.style.left = Math.random() * 100 + '%';
+                        particle.style.animationDelay = Math.random() * 15 + 's';
+                        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                        container.appendChild(particle);
+                    }
+                }
+            });
+        }
+        
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createHeroParticles();
+            createSectionParticles();
+        });
+    </script>
+</body>
+</html>
