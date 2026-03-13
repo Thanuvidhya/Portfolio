@@ -290,21 +290,51 @@ function initContactForm() {
                 return;
             }
             
-            // Simulate form submission
+            // Initialize EmailJS
+            (function() {
+                emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+            })();
+            
+            // Prepare email data
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message,
+                to_email: 'thanuvidhyac@gmail.com'
+            };
+            
+            // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             
-            setTimeout(() => {
-                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-                form.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                    form.reset();
+                }, function(error) {
+                    // Fallback to mailto if EmailJS fails
+                    fallbackToMailto(name, email, message);
+                })
+                .finally(function() {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
+}
+
+// Fallback method using mailto
+function fallbackToMailto(name, email, message) {
+    const subject = encodeURIComponent(`Portfolio Contact: ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:thanuvidhyac@gmail.com?subject=${subject}&body=${body}`;
+    
+    window.open(mailtoLink);
+    showNotification('Opening your email client...', 'info');
 }
 
 // Email validation
@@ -428,63 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Create a sample resume content (in real implementation, this would be a PDF file)
-            const resumeContent = `
-THANUVIDHYA C
-AI/ML Engineer | Data Science Enthusiast
-
-CONTACT:
-Email: thanuvidhyac@gmail.com
-Phone: +91 7695891799
-LinkedIn: linkedin.com/in/thanuvidhya-c-a9442b259/
-GitHub: github.com/Thanuvidhya
-Location: India
-
-EDUCATION:
-BE Computer Science (2022–2026)
-Adhiyamaan College of Engineering
-CGPA: 8.3
-
-SKILLS:
-• Python • AI/ML • Data Science • MySQL • Power BI • PHP • Cloud Computing • DevOps Basics
-
-PROJECTS:
-1. RAG-BOT (Retrieval Augmented Generation)
-   Multilingual AI conversational system using retrieval techniques
-   Tech: Python, NLP, AI
-
-2. SQL Injection Detection Tool
-   Security-based web application for detecting malicious SQL payloads
-   Tech: PHP, MySQL
-
-INTERNSHIPS:
-• Data Science with Python – iGeeks Technology (2023)
-• Data Analyst – Pantech Solutions (2023)
-• Python Bootcamp – Pantech Solutions (2022)
-
-CERTIFICATIONS:
-• Fundamentals of Generative AI – Microsoft
-• Cloud Computing and DevOps – Excelr
-• Full Stack Development – Infosys Springboard
-
-LANGUAGES:
-• English (Fluent)
-• Tamil (Native)
-            `;
-            
-            // Create a blob and download
-            const blob = new Blob([resumeContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Thanuvidhya_C_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
+            // Show notification when resume is downloaded
             showNotification('Resume downloaded successfully!', 'success');
         });
     }
